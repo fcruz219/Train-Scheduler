@@ -35,7 +35,7 @@
       time: time,
       frequency: frequency,
     });
-
+$('input').val('');
   });
 
   // Firebase watcher .on("child_added"
@@ -43,37 +43,37 @@
     // storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
 
-    //gets employee billed frequency
+
     // Console.loging the last user's data
     console.log(sv.name);
     console.log(sv.destination);
     console.log(sv.time);
     console.log(sv.frequency);
 
-   var frequency = parseInt(frequency)
+    var freq = parseInt(sv.frequency)
 
-   var dConverted = moment(sv.time, 'HH:mm a').subtract(1, 'years');
-   var trainTime = moment(dConverted).format('HH:mm');
-   var tConverted = moment(trainTime, 'HH:mm').subtract(1, 'years');
-   var tDifference = moment().diff(moment(tConverted), 'minutes');
-   var tRemainder = tDifference % frequency;
-   var minsAway = frequency - tRemainder;
-   var nextTrain = moment().add(minsAway, 'minutes');
-console.log(minsAway)
+    var dConverted = moment(snapshot.val().time, 'HH:mm').subtract(1, 'years');
+    var trainTime = moment(dConverted).format('HH:mm');
+    var tConverted = moment(trainTime, 'HH:mm').subtract(1, 'years');
+    var tDifference = moment().diff(moment(tConverted), 'minutes');
+    var tRemainder = tDifference % freq;
+    var minsAway = freq - tRemainder;
+    var nextTrain = moment().add(minsAway, 'minutes');
 
-   // Change the HTML to reflect
+    // Change the HTML to reflect
 
     var newRow = $("<tr>").append(    
        $("<td>").text(sv.name),
        $("<td>").text(sv.destination),
        $("<td>").text(sv.frequency),
-       $("<td>").text(moment(nextTrain).format('hh:mm a')),
-       $("<td>").text(minsAway + ' minutes away')
+       $("<td>").text(moment(nextTrain, 'HH:mm').format("hh:mm a")),
+       $("<td>").text(minsAway + ' Minutes away'),
 
 
    )
 
 $("#train-table > tbody").append(newRow)
+
 
 
 
