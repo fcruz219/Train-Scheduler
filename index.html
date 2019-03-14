@@ -12,6 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+  <!-- Stylesheet -->
+  <link rel="stylesheet" src="style.css">
+
   <!-- Firebase Reference -->
   <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
@@ -78,15 +81,15 @@
                 <input class="form-control" id="train-name-input" type="text">
               </div>
               <div class="form-group">
-                <label for="role-input">Destination</label>
+                <label for="destination-input">Destination</label>
                 <input class="form-control" id="destination-input" type="text">
               </div>
               <div class="form-group">
-                <label for="start-input">First Train Time (HH:mm - Military Time)</label>
+                <label for="train-time-input">First Train Time (HH:mm - Military Time)</label>
                 <input class="form-control" id="train-time-input" type="text">
               </div>
               <div class="form-group">
-                <label for="rate-input">Frequency (min)</label>
+                <label for="freq-input">Frequency (min)</label>
                 <input class="form-control" id="freq-input" type="text">
               </div>
               <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>

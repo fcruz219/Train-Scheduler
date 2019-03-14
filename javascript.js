@@ -62,15 +62,13 @@ $('input').val('');
 
     // Change the HTML to reflect
 
-    var newRow = $("<tr>").append(    
+    var newRow = $("<tr>").append(
        $("<td>").text(sv.name),
        $("<td>").text(sv.destination),
        $("<td>").text(sv.frequency),
        $("<td>").text(moment(nextTrain, 'HH:mm').format("hh:mm a")),
        $("<td>").text(minsAway + ' Minutes away'),
-
-
-   )
+       )
 
 $("#train-table > tbody").append(newRow)
 
